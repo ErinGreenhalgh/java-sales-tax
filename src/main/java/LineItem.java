@@ -20,7 +20,6 @@ public class LineItem {
         type = setType(info.get("type"));
         price = setPrice(info.get("price"));
     }
-    //rewrite this constructor just take in values rather than the hashmap
 
     public LineItem(int quant, String itemType, float itemPrice) {
         quantity = quant;
