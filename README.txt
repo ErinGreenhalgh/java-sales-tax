@@ -1,15 +1,18 @@
 RUNNING THE APPLICATION:
-1. Ensure that you have maven installed.
-2. Compile the application: `mvn clean compile`
-3. To run the application giving file names as command line arguements:
-`mvn exec:java -Dexec.mainClass=Runner -Dexec.args="./src/main/resources/input_1.txt"
-To run pass in more than one filename, simply add the path separated by a space:
--Dexec.args="./src/main/resources/input_1.txt ./src/main/resources/input_2.txt ./src/main/resources/input_3.txt"
+- To begin, Ensure that you have maven installed. For instructions, see here: http://maven.apache.org/install.html
 
-These input files listed above match those in the spec.
-If adding an input file not already in the project directory by sure to specify the full path of the file.
-4. When the program is finished parsing and writing the files, you will see a message that the receipt writing process is completed. Output files will be written to ./src/main/resources/
-5. Run the tests: `mvn test`
+In the terminal:
+1. Compile the application: mvn clean compile
+2. To run the application giving file names as command line arguments:
+mvn exec:java -Dexec.mainClass=Runner -Dexec.args="./src/main/resources/input_1.txt"
+ - Ensure you are in the root directory of the project
+ - To run pass in more than one filename, simply add the path separated by a space:
+-Dexec.args="./src/main/resources/input_1.txt ./src/main/resources/input_2.txt ./src/main/resources/input_3.txt"
+ - These input files listed above match those in the spec.
+
+ - If adding an input file not already in the project directory by sure to specify the full path of the file.
+ - When the program is finished parsing and writing the files, you will see a message that the receipt writing process is completed. Output files will be written to ./src/main/resources/
+4. Run the tests: `mvn test`
 
 
 DESIGN NOTES:
