@@ -1,15 +1,15 @@
 RUNNING THE APPLICATION:
-- Compile the application: `javac Runner.java`
-- Run the application: `java Runner` and enter file paths as arguments separated by a space,
-For example: java Runner ./src/main/resources/input_1.txt ./src/main/resources/input_2.txt ./src/main/resources/input_3.txt
-- Input files matching those in the spec have been provided:
-./src/main/resources/input_1.txt
-./src/main/resources/input_2.txt
-./src/main/resources/input_3.txt
-- When the program is finished parsing and writing the files, you will see a message that the receipt writing process is completed. Output files will be written to ./src/main/resources/
+1. Ensure that you have maven installed.
+2. Compile the application: `mvn clean compile`
+3. To run the application giving file names as command line arguements:
+`mvn exec:java -Dexec.mainClass=Runner -Dexec.args="./src/main/resources/input_1.txt"
+To run pass in more than one filename, simply add the path separated by a space:
+-Dexec.args="./src/main/resources/input_1.txt ./src/main/resources/input_2.txt ./src/main/resources/input_3.txt"
 
-Running the tests? (as a suite?)
-Installing dependencies?
+These input files listed above match those in the spec.
+If adding an input file not already in the project directory by sure to specify the full path of the file.
+4. When the program is finished parsing and writing the files, you will see a message that the receipt writing process is completed. Output files will be written to ./src/main/resources/
+5. Run the tests: `mvn test`
 
 
 DESIGN NOTES:
