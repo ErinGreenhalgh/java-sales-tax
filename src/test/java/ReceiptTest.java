@@ -49,7 +49,6 @@ public class ReceiptTest {
 
         List<Double> totals = r.totalCostPerItem();
         assertEquals(totals, expectedTotals);
-        //check for rounding errors
     }
 
     @Test

@@ -27,7 +27,6 @@ public class LineItemTest {
         String[] correctTypes = {"book", "pill", "chocolate"};
         assertArrayEquals(types,correctTypes);
     }
-    //change this to be an ivar, could be a static ivar
 
     @Test
     public void buildRegexTest() {

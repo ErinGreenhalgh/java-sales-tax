@@ -64,7 +64,6 @@ public class LineItem {
         types[2] = "chocolate";
         return types;
     }
-    //make this an ivar so it doesn't rebuild the array every time it's called
 
     void setTaxes() {
         TaxCalculator calculator = new TaxCalculator();
