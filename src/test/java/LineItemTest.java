@@ -1,5 +1,4 @@
 import org.junit.Test;
-//add this into the POM
 
 import java.util.HashMap;
 
