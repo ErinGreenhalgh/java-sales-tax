@@ -15,28 +15,10 @@ public class LineItem {
         taxes = 0.0;
     }
 
-    public LineItem(HashMap<String, String> info) {
-        quantity = setQuantity(info.get("quantity"));
-        type = setType(info.get("type"));
-        price = setPrice(info.get("price"));
-    }
-
     public LineItem(int quant, String itemType, float itemPrice) {
         quantity = quant;
         type = itemType;
         price = itemPrice;
-    }
-
-    int setQuantity(String quant){
-        return quantity = Integer.parseInt(quant);
-    }
-
-    float setPrice(String priceText){
-        return price = Float.parseFloat(priceText);
-    }
-
-    String setType(String itemType) {
-        return type = itemType;
     }
 
     int getQuantity() {
@@ -94,6 +76,4 @@ public class LineItem {
         double total = this.getQuantity() * this.getPrice() + this.getTaxes();
         return Math.round(total * 100.0) / 100.0;
     }
-
-
 }

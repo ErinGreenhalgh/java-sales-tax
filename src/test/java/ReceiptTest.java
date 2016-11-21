@@ -8,29 +8,17 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class ReceiptTest {
-    LineItem item1 = new LineItem();
-    LineItem item2 = new LineItem();
+    LineItem item1;
+    LineItem item2;
     Receipt r = new Receipt();
     List<LineItem> items = new ArrayList<LineItem>();
 
     @Before
     public void initialize() {
-        HashMap<String, String> data1 = new HashMap<String, String>();
-        data1.put("quantity", "1");
-        data1.put("type", "imported book");
-        data1.put("price", "15.99");
-        item1.setQuantity(data1.get("quantity"));
-        item1.setType(data1.get("type"));
-        item1.setPrice(data1.get("price"));
+        item1 = new LineItem(1, "imported book", 15.99f);
         item1.setTaxes();
 
-        HashMap<String, String> data2 = new HashMap<String, String>();
-        data2.put("quantity", "1");
-        data2.put("type", "music CD");
-        data2.put("price", "10.50");
-        item2.setQuantity(data2.get("quantity"));
-        item2.setType(data2.get("type"));
-        item2.setPrice(data2.get("price"));
+        item2 = new LineItem(1, "music CD", 10.50f);
         item2.setTaxes();
 
 

@@ -7,19 +7,13 @@ public class TaxCalculatorTest {
 
     @Test
     public void calculatesSalesTaxOnItemTest() {
-        LineItem item = new LineItem();
-        item.setPrice("14.99");
-        item.setType("music CD");
-        item.setQuantity("1");
+        LineItem item = new LineItem(1, "music CD", 14.99f);
 
         TaxCalculator calc = new TaxCalculator();
         double taxes = calc.calculateSalesTax(item);
         assertEquals(taxes, 1.50, 0.001);
 
-        LineItem exempt = new LineItem();
-        exempt.setType("book");
-        exempt.setPrice("10.50");
-        exempt.setQuantity("1");
+        LineItem exempt = new LineItem(1, "book", 10.50f);
         TaxCalculator calcTwo = new TaxCalculator();
         double no_taxes = calcTwo.calculateSalesTax(exempt);
         assertEquals(no_taxes, 0.0, 0.0001);
@@ -27,9 +21,7 @@ public class TaxCalculatorTest {
 
     @Test
     public void calculateImportTaxOnItemsTest() {
-        LineItem item = new LineItem();
-        item.setPrice("9.75");
-        item.setType("imported bottle of headache pills");
+        LineItem item = new LineItem(1, "imported bottle of headache pills", 9.75f);
 
         TaxCalculator calc = new TaxCalculator();
         double importTax = calc.calculateImportTax(item);
@@ -38,9 +30,7 @@ public class TaxCalculatorTest {
 
     @Test
     public void calculateAllTaxOnAnItemTest() {
-        LineItem item = new LineItem();
-        item.setPrice("27.99");
-        item.setType("imported bottle of perfume");
+        LineItem item = new LineItem(1, "imported bottle of perfume", 27.99f);
 
         TaxCalculator calc = new TaxCalculator();
         double total_tax = calc.allTax(item);
@@ -73,10 +63,7 @@ public class TaxCalculatorTest {
 
     @Test
     public void roundsImportTaxesCorrectlyTest() {
-        LineItem itemOne = new LineItem();
-        itemOne.setPrice("11.25");
-        itemOne.setType("imported chocolates");
-        itemOne.setQuantity("1");
+        LineItem itemOne = new LineItem(1, "imported box of chocolates", 11.25f);
 
         TaxCalculator calc = new TaxCalculator();
 
@@ -86,19 +73,13 @@ public class TaxCalculatorTest {
 
     @Test
     public void roundsSalesTaxesCorrectlyTest() {
-        LineItem itemTwo = new LineItem();
-        itemTwo.setPrice("13.20");
-        itemTwo.setType("music CD");
-        itemTwo.setQuantity("1");
+        LineItem itemTwo = new LineItem(1, "music CD", 13.20f);
 
         TaxCalculator calc = new TaxCalculator();
         double taxesTwo = calc.calculateSalesTax(itemTwo);
         assertEquals(taxesTwo, 1.35, 0.00001);
 
-        LineItem itemThree = new LineItem();
-        itemThree.setPrice("15.52");
-        itemThree.setType("perfume");
-        itemThree.setQuantity("1");
+        LineItem itemThree = new LineItem(1, "perfume", 15.52f);
 
         double taxesThree = calc.calculateSalesTax(itemThree);
         assertEquals(taxesThree, 1.55, 0.00001);
@@ -113,10 +94,7 @@ public class TaxCalculatorTest {
 
     @Test
     public void correctlyRoundsTaxEndingInZeroTest() {
-        LineItem itemSales = new LineItem();
-        itemSales.setPrice("2.00");
-        itemSales.setType("music CD");
-        itemSales.setQuantity("1");
+        LineItem itemSales = new LineItem(1, "music CD", 2.00f);
 
         TaxCalculator calc = new TaxCalculator();
         double taxesSales = calc.calculateSalesTax(itemSales);

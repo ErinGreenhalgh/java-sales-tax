@@ -31,7 +31,7 @@ public class FileParser {
         return String.valueOf(findQuantity(fileName));
     }
 
-    List<LineItem> extractInformation(List<String> receiptContents) {
+    List<LineItem> createItems(List<String> receiptContents) {
         List<LineItem> results = new ArrayList<>();
         for (String line : receiptContents) {
             LineItem entry = new LineItem(findQuantity(line), findItem(line), findPrice(line));
@@ -58,23 +58,13 @@ public class FileParser {
         return Float.parseFloat(result[result.length - 1]);
     }
 
-    List<LineItem> createLineItems(List<HashMap> lineItemInfo) {
-        List<LineItem> result = new ArrayList<>();
-        for (int i = 0; i < lineItemInfo.size(); i++) {
-            LineItem item = new LineItem(lineItemInfo.get(i));
-            result.add(item);
-        }
-        return result;
-    }
-
     Receipt createReceipt(List<LineItem> items, String receiptNumber) {
         return new Receipt(items, receiptNumber);
     }
 
     Receipt parseFileToReceipt(String fileName) {
         List<String> receiptText = getReceiptContents(fileName);
-        List<LineItem> items = this.extractInformation(receiptText);
-//        List<LineItem> items = this.createLineItems(parsedReceipts);
+        List<LineItem> items = this.createItems(receiptText);
         String receiptNumber = this.getReceiptNumber(fileName);
         return this.createReceipt(items, receiptNumber);
     }
