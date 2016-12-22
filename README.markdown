@@ -1,7 +1,7 @@
 # Receipt Writer
 This project is a simple app that takes in purchase information and writes itemized receipts, calculating sales tax on different types of items. 
 
-** Example Input:**
+**Example Input:**
 ``` 
 1 imported bottle of perfume at 27.99
 1 bottle of perfume at 18.99
